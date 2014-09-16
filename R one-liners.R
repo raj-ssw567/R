@@ -13,10 +13,10 @@ dataframe$whatevercolumn = factor(dataframe$whatevercolumn, labels = c('blah', '
 colnames(data.fram)[x] = "newname"
 
 #plot with factor colors
-qplot(dataframe$whatevercolumn x, dataframe$whatevercolumn y, color = dataframe$factor)
+qplot(dataframe$whatevercolumn, dataframe$whatevercolumn, color = dataframe$factor)
 
 #Pretty Histograms
-ggplot(data.fram, aes(x = datacolumm, fill = factorcolumn)) + geom_bar()
+ggplot(data.frame, aes(x = datacolumm, fill = factorcolumn)) + geom_bar()
 
 #Standard Deviation of column 
 sapply(dataframe$column, sd)
@@ -38,7 +38,7 @@ anova = aov(data~factor)
 summary(anova)
 
 #ANOVA 2-way
-anova = aov(data~factor(x)*factor(y))
+anova = aov(data~factor*factor)
 summary(anova)
 
 #After running anova you can see the pair-wise comparison
