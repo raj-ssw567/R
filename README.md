@@ -1,3 +1,3 @@
 R
 
-Useful R commands for statistics
+Useful R commands for basic statistics
