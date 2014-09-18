@@ -4,24 +4,26 @@
 
 library(XML)
 
-#store the URL into a variable
+#Store the URL to extract your last 100 match info into a variable
 dotaURL = 'http://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=<key>&format=xml&account_id=<id>'
 
-#load xml in a way that gives you access to each part
+#load xml in a way that gives you access to each part of the xml file
 dota = xmlTreeParse(dotaURL, useInternalNodes=TRUE)
 matchHistory = xmlRoot(dota)
-#print details about the data loaded
+#print details about the data loaded to make sure that it all looks good
 xmlName(matchHistory)
 names(matchHistory)
 
-#pull out match id from xml
+#pull out all 100 match ids from xml
 match_ids = xpathSApply(matchHistory,"//match_id", xmlValue)
 
-#Create a matric to store all of the data
+#Create a matrix to store all of the data
 output = matrix(ncol=7, nrow=100)
 #initialize row counter
 j = 0
-#pull data from each match
+
+#Create a loop to go through pull data from each match according to match_id 
+#only takes the data from the specific account_id
 for (i in match_ids){
   #create unique url for each match id
   j = j + 1
