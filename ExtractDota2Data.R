@@ -18,7 +18,7 @@ names(matchHistory)
 match_ids = xpathSApply(matchHistory,"//match_id", xmlValue)
 
 #Create a matrix to store all of the data
-output = matrix(ncol=9, nrow=100)
+output = matrix(ncol=12, nrow=100)
 #initialize row counter
 j = 0
 
@@ -43,9 +43,12 @@ for (i in match_ids){
   output[j,7] = xpathSApply(match, "//player[account_id = '<id>']/hero_damage", xmlValue)
   output[j,8] = xpathSApply(match, "//player[account_id = '<id>']/tower_damage", xmlValue)
   output[j,9] = xpathSApply(match, "//player[account_id = '<id>']/hero_healing", xmlValue)
+  output[j,10] = xpathSApply(match, "//player[account_id = '<id>']/gold_per_min", xmlValue)
+  output[j,11] = xpathSApply(match, "//player[account_id = '<id>']/xp_per_min", xmlValue)
+  output[j,12] = xpathSApply(match, "//player[account_id = '<id>']/gold_spent", xmlValue)
 }
 
 stats = data.frame(output)
-col_headers = c('kills', 'deaths', 'assists', 'last_hits', 'denies','gold', 'hero_damage', 'tower_damage', 'hero_healing')
+col_headers = c('kills', 'deaths', 'assists', 'last_hits', 'denies','gold', 'hero_damage', 'tower_damage', 'hero_healing', 'GPM', 'XPM', 'GoldSpent')
 names(stats) = col_headers
 write.csv(stats, file = 'MyDotaStats.csv')
