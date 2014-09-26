@@ -5,6 +5,8 @@ library('arules')
 hero = na.omit(read.csv('MasterHeroComp.csv'))
 heroID = na.omit(read.csv('HeroID.csv'))
 
+
+#Label each hero so that you don't just have an array of numbers
 hero$WinvsLoss = as.character(hero$WinvsLoss)
 hero$Hero1 = factor(hero$Hero1, levels = heroID$ID, labels = heroID$Hero)
 hero$Hero2 = factor(hero$Hero2, levels = heroID$ID, labels = heroID$Hero)
