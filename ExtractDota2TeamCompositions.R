@@ -8,7 +8,7 @@ output = matrix(ncol=13, nrow=1000)
 j = 1
 
 #do it nine more times so you have 1000 games
-for (k in 1:9){
+for (k in 1:10){
     url = 'http://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=<key>&format=xml&skill=3&min_players=10'
     dota = xmlTreeParse(url, useInternalNodes=TRUE)
     matchHistory = xmlRoot(dota)
