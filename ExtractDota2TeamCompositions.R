@@ -7,7 +7,7 @@ output = matrix(ncol=13, nrow=1000)
 #initialize row counter
 j = 1
 
-#do it nine more times so you have 1000 games
+#This loop will pull team composition data for 100 games per hour ten times
 for (k in 1:10){
     url = 'http://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=<key>&format=xml&skill=3&min_players=10'
     dota = xmlTreeParse(url, useInternalNodes=TRUE)
