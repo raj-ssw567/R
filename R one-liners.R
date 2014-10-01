@@ -50,3 +50,6 @@ fit = lm(y ~ x1 + x2 + ... + xn, data = data.frame)
 
 #predict using fitted regression (variable must match the ones used to fit)
 predict(fit, newdata = data.frame(variable(x) = listofnewvalues))
+
+#plotting and subsetting two time-series data sets on the same graph
+ts.plot(ts(a.ts[100:150]), ts(b.ts[100:150]), gpars = list(col = c('black', 'red')))
