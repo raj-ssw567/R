@@ -58,5 +58,4 @@ predict(fit, newdata = data.frame(variable(x) = listofnewvalues))
 #plotting and subsetting two time-series data sets on the same graph
 ts.plot(ts(a.ts[100:150]), ts(b.ts[100:150]), gpars = list(col = c('black', 'red')))
 #or
-meltdf <- melt(df,id="timevariable")
-ggplot(meltdf,aes(x=timevariable,y=value,color=variable,group=variable)) + geom_line()
+ggplot(df,aes(x=timevariable,y=value,color=variable,group=variable)) + geom_line()
