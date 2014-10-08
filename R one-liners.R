@@ -61,4 +61,5 @@ ts.plot(ts(a.ts[100:150]), ts(b.ts[100:150]), gpars = list(col = c('black', 'red
 ggplot(df,aes(x=timevariable,y=value,color=variable,group=variable)) + geom_line()
 
 #Check if a specific value is present in an array
-'value' %in% array
+'value' %in% array #or
+is.element('value', array)
